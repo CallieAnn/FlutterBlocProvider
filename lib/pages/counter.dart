@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_bloc/blocs/counter_bloc.dart';
+import 'package:flutter_bloc/widgets/increment.dart';
+import 'package:flutter_bloc/widgets/decrement.dart';
 
 class CounterPage extends StatelessWidget {
   @override
@@ -11,9 +13,16 @@ class CounterPage extends StatelessWidget {
     return Scaffold(
       body: new Container(
         child: Center(
-          child: Text(
-            counterBloc.counter.toString(),
-            style: TextStyle(fontSize: 62.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                counterBloc.counter.toString(),
+                style: TextStyle(fontSize: 62.0),
+              ),
+              IncrementButton(),
+              DecrementButton(),
+            ],
           ),
         ),
       ),
